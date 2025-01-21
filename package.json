@@ -1,0 +1,17 @@
+{
+  "name": "rnv-ticket",
+  "version": "1.0.0",
+  "main": "vdv/index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bwip-js": "^4.5.1",
+    "iconv-lite": "^0.6.3",
+    "zebra-crossing": "^0.1.2"
+  }
+}

@@ -1,0 +1,218 @@
+@font-face {
+  font-family: 'SF Pro';
+  src: url('./sf-pro.otf');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('./AvenirLTStd-Light.otf') format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('./AvenirLTStd-Black.otf') format('opentype');
+  font-weight: 900;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  font-family: SF Pro;
+  background-color: #0098d8;
+  min-height: -webkit-fill-available;
+}
+
+.template {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+
+.back-header {
+  display: flex;
+  align-items: center;
+  padding: 11px 0;
+  font-size: 18px;
+  color: white;
+  background-color: #0098d8;
+}
+
+.back-header svg {
+  color: #ffffff;
+  height: 30px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 5px;
+  background-color: #00254c;
+  color: white;
+}
+
+.logo {
+  position: relative;
+  height: 28px;
+  left: -6px;
+}
+
+.analog-clock {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.clock-hand {
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  margin-top: 2px;
+  background-color: white;
+  left: 50%;
+  transform-origin: bottom;
+}
+
+.main {
+  position: relative;
+  background-color: white;
+}
+
+.background-watermark {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.watermark-text-container {
+  width: 120%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+  font-size: 22px;
+  color: #000000;
+  line-height: 1.39;
+  white-space: nowrap;
+  transform: rotate(-5.9deg);
+  margin-top: -34px;
+  margin-left: -45px;
+}
+
+.watermark-text {
+  position: relative;
+  white-space: nowrap;
+  font-size: 30px;
+}
+
+.watermark-text:nth-child(4n) {
+  left: -100px;
+}
+
+.watermark-text:nth-child(4n + 1) {
+  left: -200px;
+}
+
+.watermark-text:nth-child(4n + 2) {
+  left: -300px;
+}
+
+.watermark-text:nth-child(4n + 3) {
+  left: -400px;
+}
+
+.wavy-line-container {
+  position: absolute;
+  top: 0;
+  width: 465px;
+  height: 100%;
+}
+
+.wavy-line-container svg {
+  height: 100%;
+  transform: scale(0.5, -1);
+}
+
+.card-swipe {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  max-width: 350px;
+  aspect-ratio: 350 / 500;
+  background-image: url('./card.png');
+  background-size: contain;
+  font-family: 'Avenir';
+  font-weight: 900;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 26px;
+}
+
+.reach {
+  font-size: 21px;
+}
+
+.info {
+  margin-top: 15px;
+}
+
+.info-title {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.info-value {
+  font-size: 14px;
+}
+
+.content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.content img {
+  height: 100px;
+  margin-right: 20px;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.disclaimer {
+  font-size: 10.5px;
+}
+
+.barcode-section {
+  width: 100%;
+  background-color: white;
+  aspect-ratio: 1 / 1;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.barcode-section img {}
