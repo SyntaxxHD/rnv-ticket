@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'SF Pro';
-  src: url('./sf-pro.otf');
+  src: url('./SF-Pro.otf') format('opentype');
 }
 
 @font-face {
@@ -13,6 +13,11 @@
   font-family: 'Avenir';
   src: url('./AvenirLTStd-Black.otf') format('opentype');
   font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Morrison';
+  src: url('./Morrison-Bold.ttf');
 }
 
 body {
@@ -32,7 +37,6 @@ body {
   pointer-events: none;
   opacity: 0.2;
 }
-
 
 .back-header {
   display: flex;
@@ -140,16 +144,29 @@ body {
   transform: scale(0.5, -1);
 }
 
-.card-swipe {
+.card-swipe-container {
+  width: 100%;
   position: absolute;
   top: 50px;
-  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.card {
+.card-swipe {
+  width: 100%;
+  display: flex;
   max-width: 350px;
+  aspect-ratio: 350 / 500;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card-swipe::-webkit-scrollbar { 
+    display: none;
+}
+
+.card {
+  max-width: 100%;
   aspect-ratio: 350 / 500;
   background-image: url('./card.png');
   background-size: contain;
@@ -160,6 +177,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  scroll-snap-align: center;
 }
 
 .title {
@@ -215,4 +233,22 @@ body {
   margin-bottom: 15px;
 }
 
-.barcode-section img {}
+.barcode-section img {
+}
+
+.barcode-section .number {
+  font-family: 'Morrison';
+  color: #c5c5c5;
+  font-size: 40px;
+}
+
+.number span {
+  color: #979797;
+  font-size: 50px;
+}
+
+.mirror {
+  transform: scale(1, -0.6);
+  margin-top: -25px;
+  opacity: 0.5;
+}
