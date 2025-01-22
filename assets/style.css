@@ -24,7 +24,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: white;
-  font-family: SF Pro;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "SF PRO", Helvetica, Arial, sans-serif;
   background-color: #0098d8;
   min-height: -webkit-fill-available;
 }
@@ -35,14 +35,14 @@ body {
   left: 0;
   width: 100%;
   pointer-events: none;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .back-header {
   display: flex;
   align-items: center;
-  padding: 11px 0;
-  font-size: 18px;
+  height: 46px;
+  font-size: 17px;
   color: white;
   background-color: #0098d8;
 }
@@ -56,21 +56,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3px 5px;
+  height: 50px;
   background-color: #00254c;
   color: white;
+  padding-right: 4px;
 }
 
 .logo {
   position: relative;
-  height: 28px;
-  left: -6px;
+  height: 25px;
 }
 
 .analog-clock {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border: 3px solid white;
   border-radius: 50%;
 }
@@ -78,8 +78,7 @@ body {
 .clock-hand {
   position: absolute;
   width: 3px;
-  height: 20px;
-  margin-top: 2px;
+  height: 18px;
   background-color: white;
   left: 50%;
   transform-origin: bottom;
@@ -113,11 +112,11 @@ body {
 .watermark-text {
   position: relative;
   white-space: nowrap;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .watermark-text:nth-child(4n) {
-  left: -100px;
+  left: -0px;
 }
 
 .watermark-text:nth-child(4n + 1) {
@@ -125,11 +124,27 @@ body {
 }
 
 .watermark-text:nth-child(4n + 2) {
-  left: -300px;
+  left: -400px;
 }
 
 .watermark-text:nth-child(4n + 3) {
-  left: -400px;
+  left: -600px;
+}
+
+.watermark-text:nth-child(4n + 4) {
+  left: -800px;
+}
+
+.watermark-text:nth-child(4n + 5) {
+  left: -1000px;
+}
+
+.watermark-text:nth-child(4n + 6) {
+  left: -1200px;
+}
+
+.watermark-text:nth-child(4n + 7) {
+  left: -1400px;
 }
 
 .wavy-line-container {
@@ -147,13 +162,13 @@ body {
 .card-swipe-container {
   width: 100%;
   position: absolute;
-  top: 50px;
+  top: 60px;
   display: flex;
   justify-content: center;
 }
 
 .card-swipe {
-  width: 100%;
+  min-width: 350px;
   display: flex;
   max-width: 350px;
   aspect-ratio: 350 / 500;
@@ -161,21 +176,21 @@ body {
   scroll-snap-type: x mandatory;
 }
 
-.card-swipe::-webkit-scrollbar { 
-    display: none;
+.card-swipe::-webkit-scrollbar {
+  display: none;
 }
 
 .card {
+  min-width: 350px;
   max-width: 100%;
   aspect-ratio: 350 / 500;
   background-image: url('./card.png');
   background-size: contain;
   font-family: 'Avenir';
   font-weight: 900;
-  padding: 20px;
+  padding: 17px 12px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   box-sizing: border-box;
   scroll-snap-align: center;
 }
@@ -186,9 +201,16 @@ body {
 
 .reach {
   font-size: 21px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .info {
+  margin-top: 11px;
+}
+
+.first-info {
   margin-top: 15px;
 }
 
@@ -197,6 +219,7 @@ body {
   text-transform: uppercase;
   font-size: 14px;
   margin-bottom: 6px;
+  letter-spacing: -0.5px;
 }
 
 .info-value {
@@ -207,11 +230,12 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  margin-top: 57px;
 }
 
 .content img {
   height: 100px;
-  margin-right: 20px;
+  margin-right: 14px;
 }
 
 .description {
@@ -219,27 +243,39 @@ body {
 }
 
 .disclaimer {
-  font-size: 10.5px;
+  font-size: 12px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.barcode-disclaimer {
+  font-size: 11px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .barcode-section {
-  width: 100%;
   background-color: white;
-  aspect-ratio: 1 / 1;
   padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
 }
 
-.barcode-section img {
+.barcode {
+  width: 220px;
+  height: 220px;
 }
 
 .barcode-section .number {
   font-family: 'Morrison';
   color: #c5c5c5;
   font-size: 40px;
+  margin-bottom: -20px;
 }
 
 .number span {
@@ -251,4 +287,37 @@ body {
   transform: scale(1, -0.6);
   margin-top: -25px;
   opacity: 0.5;
+}
+
+.slider-container {
+  position: absolute;
+  bottom: 37px;
+  width: 100%;
+  display: flex;
+  justify-content: center
+}
+
+.slider {
+  width: 50px;
+  height: 20px;
+  border-radius: 12px;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  position: relative;
+  justify-content: center;
+  gap: 10px;
+}
+
+.circle {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #dddddd;
+  transition: background-color 0.3s;
+}
+
+.active {
+  background-color: #086788;
 }

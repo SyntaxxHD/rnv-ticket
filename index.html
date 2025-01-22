@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./assets/bwip-js-min.js" defer></script>
+  <script src="./assets/script.js" defer></script>
   <title>Ticket UI</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
 
-  <div class="back-header">
+  <div class="back-header" id="back-header">
     <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="white">
       <path d="M435.8 512L690 258c18.8-18.8 18.8-49.2 0-67.8-18.8-18.8-49.2-18.6-68 0L334 478c-18.2 18.2-18.6 47.4-1.4 66.2L621.8 834c9.4 9.4 21.8 14 34 14s24.6-4.6 34-14c18.8-18.8 18.8-49.2 0-67.8L435.8 512z" />
     </svg>
@@ -21,38 +23,17 @@
   <div class="main-header">
     <img class="logo" src="./assets/logo.png" alt="logo">
     <div class="analog-clock">
-      <div class="clock-hand" style="width: 1px;"></div>
-      <div class="clock-hand" style="transform: rotate(90deg);"></div>
-      <div class="clock-hand" style="transform: rotate(200deg);"></div>
+      <div class="clock-hand" style="width: 1px;" id="second-hand"></div>
+      <div class="clock-hand" id="minute-hand"></div>
+      <div class="clock-hand" id="hour-hand"></div>
     </div>
   </div>
 
   <div class="main">
     <div class="background-watermark">
-      <div class="watermark-text-container">
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
-        <div class="watermark-text">Leonard Müller / 180408000203233 / D-Ticket JugendBW / 01.03.2024 00:00 / 01.04.2024 02:59</div>
+      <div class="watermark-text-container" id="watermark-text-container">
       </div>
-
       <div class="wavy-line-container">
-
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800">
           <defs>
             <linearGradient gradientTransform="rotate(270)" x1="50%" y1="0%" x2="50%" y2="100%" id="sssquiggly-grad">
@@ -116,7 +97,7 @@
     </div>
 
     <div class="card-swipe-container">
-      <div class="card-swipe">
+      <div class="card-swipe" id="card-swipe">
         <div class="card">
           <div class="title">
             Abonnement<br>
@@ -125,15 +106,16 @@
           <div class="content">
             <div class="description">
               <div class="reach">
-                Bundesweit <br> (im Nahverkehr)
+                <span>Bundesweit</span>
+                <span>(im Nahverkehr)</span>
               </div>
-              <div class="info">
+              <div class="info first-info">
                 <div class="info-title">Vor & Nachname</div>
-                <div class="info-value">Leonard Müller</div>
+                <div class="info-value" id="info-name"></div>
               </div>
               <div class="info">
                 <div class="info-title">Kundennummer</div>
-                <div class="info-value">1804080-0002</div>
+                <div class="info-value" id="info-customer-number"></div>
               </div>
               <div class="info">
                 <div class="info-title">Geltungsbereich</div>
@@ -141,26 +123,26 @@
               </div>
               <div class="info">
                 <div class="info-title">Gültigkeit</div>
-                <div class="info-value">01.03.2024 bis 31.03.2024</div>
+                <div class="info-value" id="info-validity"></div>
               </div>
             </div>
             <img src="./assets/deutschlandticket-logo.png" alt="">
           </div>
           <div class="disclaimer">
-            Keine Mitnahmemöglichkeit<br>
-            Nicht übertragbar
+            <span>Keine Mitnahmemöglichkeit</span>
+            <span>Nicht übertragbar</span>
           </div>
         </div>
         <div class="card">
           <div class="barcode-content">
             <div class="barcode-section">
-              <img src="./assets/aztec.png" width="220" height="220">
+              <canvas class="barcode" id="barcode" width="220" height="220"></canvas>
               <div class="number-section">
-                <div class="number">8<span>0</span>40<span>8</span>0</div>
-                <div class="number mirror">8<span>0</span>40<span>8</span>0</div>
+                <div class="number" id="number"></div>
+                <div class="number mirror" id="mirror"></div>
               </div>
             </div>
-            <div class="disclaimer">
+            <div class="barcode-disclaimer">
               Umtausch bzw. Rückgabe ist nicht möglich. Nur mit gültigem Lichtbildausweis. Das Ticket ist nicht übertragbar.
               <br>
               <br>
@@ -170,9 +152,37 @@
         </div>
       </div>
     </div>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="circle active" id="indicator-1"></div>
+        <div class="circle" id="indicator-2"></div>
+      </div>
+    </div>
   </div>
 
-  <img src="./IMG_4125.PNG" alt="" class="template" style="visibility: hidden;">
+  <!-- <img src="./IMG_4125.PNG" alt="" class="template" style="visibility: visible;" id="template">
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'h' || event.key === 'H') {
+        const element = document.getElementById('template');
+        if (element) {
+          const currentVisibility = element.style.visibility;
+          const currentOpacity = element.style.opacity;
+
+          if (currentVisibility === 'hidden') {
+            element.style.visibility = 'visible';
+            element.style.opacity = '1';
+          } else if (currentOpacity === '1' || currentOpacity === '') {
+            element.style.opacity = '0.5';
+          } else {
+            element.style.visibility = 'hidden';
+          }
+        }
+      }
+    });
+  </script> -->
+
 </body>
 
 </html>
