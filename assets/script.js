@@ -1,7 +1,14 @@
-const fullName = 'Leonard Müller'
-const customerNumber = '1804080-0002'
-const fullCustomerNumber = 1804080000203233
-const shortCustomerNumber = 804080
+function getQueryParams() {
+  const params = new URLSearchParams(window.location.search)
+  return Object.fromEntries(params.entries())
+}
+
+const queryParams = getQueryParams()
+
+const fullName = queryParams.name || 'Max Mustermann'
+const customerNumber = queryParams.cn || '1234567-8901'
+const fullCustomerNumber = queryParams.fullcn || 1234567890123456
+const shortCustomerNumber = queryParams.shortcn || 234567
 const scrollContainer = document.getElementById('card-swipe')
 const now = new Date()
 const ticketStartDate = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0)
