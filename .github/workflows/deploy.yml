@@ -29,8 +29,8 @@ jobs:
       - name: Build project
         run: node build.js
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v1
         with:
           path: './dist'
 
@@ -43,4 +43,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
